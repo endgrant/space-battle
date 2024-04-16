@@ -5,12 +5,7 @@ class Pawn extends Enemy {
     this.health = 1;
     this.radius = 16;
     this.firerate = 0.4;
-    this.bullet = Bullet;
-  }
-  
-  
-  process() {
-    fill("#c23616");
-    super.process();
+    this.bullet = Pellet;
+    this.fillColor = "#c23616";
   }
 }

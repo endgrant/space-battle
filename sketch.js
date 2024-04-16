@@ -9,10 +9,11 @@ let enemies = [];
 let prevSpawnTick = 0;
 const pawnWeight = 20;
 const knightWeight = 10;
+const bishopWeight = 5;
 let enemyChoice = [];
 
 const enemyStroke = "#FD3100";
-const friendlyStroke = "#FFBB00";
+const friendlyStroke = "#FAD97E";
 
 
 // Constant time array element removal
@@ -25,14 +26,18 @@ Array.prototype.deref = function arrayDeref(i) {
 
 // Called when the program starts
 function setup() {
+  // Naive enemy spawn chance weighing
   for (let i = 0; i < pawnWeight; i++) {
     enemyChoice.push(Pawn);
   }
   for (let i = 0; i < knightWeight; i++) {
     enemyChoice.push(Knight);
   }
+  for (let i = 0; i < bishopWeight; i++) {
+    enemyChoice.push(Bishop);
+  }
   
-  strokeWeight(2);
+  strokeWeight(3);
   createCanvas(boardHeight * 2, boardHeight);
   ship = new Ship(createVector(playMargin, height/2));
 }

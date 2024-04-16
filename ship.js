@@ -4,6 +4,7 @@ const shipRadius = 16;
 const maxVelocity = 2.4;
 const acceleration = 0.1;
 const firerate = 2;
+const maxHealth = 5;
 let prevShipFireTick = 0;
 
 
@@ -12,6 +13,7 @@ class Ship {
     this.radius = shipRadius;
     this.position = position.add(shipRadius);
     this.velocity = 0;
+    this.health = maxHealth;
   }
   
   
@@ -65,13 +67,23 @@ class Ship {
   
   // Fires the ship's weapon
   fire() {
-    bullets.push(new Bullet(
-      bullets.length, true, this.position.copy(), 8, 8));
+    bullets.push(new Pellet(
+      bullets.length, true, this.position.copy()));
   }
   
   
   // Hit by a bullet
   hit() {
+    this.health -= 1;
     
+    if (this.health <= 0) {
+      this.die();
+    }
+  }
+  
+  
+  // Player died
+  die() {
+    noLoop();
   }
 }

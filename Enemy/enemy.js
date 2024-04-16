@@ -29,6 +29,7 @@ class Enemy {
     }
     
     stroke(enemyStroke);
+    fill(this.fillColor);
     circle(this.position.x, this.position.y, this.radius);
   }
   
@@ -36,7 +37,7 @@ class Enemy {
   // Fires this enemy's bullet
   fire() {
     bullets.push(new this.bullet(
-      bullets.length, false, this.position.copy(), 4, 8));
+      bullets.length, false, this.position.copy()));
   }
   
   

@@ -4,13 +4,8 @@ class Knight extends Enemy {
     super(index, position);
     this.health = 2;
     this.radius = 20;
-    this.firerate = 0.8;
-    this.bullet = Bullet;
-  }
-  
-  
-  process() {
-    fill("#FF9800");
-    super.process();
+    this.firerate = 0.7;
+    this.bullet = Pellet;
+    this.fillColor = "#FF9800";
   }
 }
